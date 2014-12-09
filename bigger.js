@@ -22,8 +22,8 @@
 
     var Bigger = function (className, realWidth) {
         var node = null;
-        if (realWidth === null) { realWidth = 320; }
-        if (className === null) {
+        if (isNaN(realWidth)) { realWidth = 320; }
+        if (!className) {
             node = document.body;
         } else {
             node = document.getElementsByClassName(className)[0];

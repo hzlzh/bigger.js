@@ -5,23 +5,66 @@
     <title>f2e-workflow Test</title>
     <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <style type="text/css">
+    h1{
+        text-align: center;
+    }
     .logo{
         background-image:url(http://hzlzh.github.io/bigger.js/logo.png);
         width:150px;
         height:150px;
         display: block;
+        margin: 0 auto;
+        background-size: 150px;
     }
     </style>
+    <script type="text/javascript">
+    /* bigger.js by @hzlzh | https://github.com/hzlzh/bigger.js (under MIT license) */
+(function () {
+    "use strict";
+
+    var Library = function (node, realWidth) {
+
+        node.style.height = document.body.scrollHeight + 'px';
+
+        function bigger() {
+            if (window.innerWidth !== realWidth) {
+                node.style.width = realWidth + "px";
+                node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
+                node.style.webkitTransformOrigin = "0 0";
+            }
+        }
+
+        bigger();
+        window.addEventListener('resize', bigger);
+
+        return this;
+    };
+
+    var Bigger = function (className, realWidth) {
+        var node = null;
+        if (realWidth === null) { realWidth = 320; }
+        if (className === null) {
+            node = document.body;
+        } else {
+            node = document.getElementsByClassName(className)[0];
+        }
+        return new Library(node, realWidth);
+    };
+
+    if (!window.Bigger) {
+        window.Bigger = Bigger;
+    }
+}(window, document));</script>
+    <script>
+        // Bigger();               // add style to <body> with 320px real width
+        //Bigger('xxx');          // add style to <div class="xxx"> with 320px real width
+        Bigger('yyy',400);      // add style to <div class="yyy"> with 400px real width
+    </script>
 </head>
-<body>
+<body class="yyy">
     <h1>f2e-workflow Test</h1>
     <div class="logo">Logo</div>
 
-    <script src="http://hzlzh.github.io/bigger.js/bigger.min.js" type="text/javascript"></script>
-    <script>
-        Bigger();               // add style to <body> with 320px real width
-        //Bigger('xxx');          // add style to <div class="xxx"> with 320px real width
-        //Bigger('yyy',400);      // add style to <div class="yyy"> with 400px real width
-    </script>
+    
 </body>
 </html>
