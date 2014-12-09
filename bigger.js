@@ -1,16 +1,37 @@
-/* Copyright: @hzlzh https://github.com/hzlzh/bigger.js */
-;(function(win) {
-    node = document.getElementsByClassName('bigger')[0];
-    node.style.height = document.body.scrollHeight+'px';
+/* bigger.js by @hzlzh | https://github.com/hzlzh/bigger.js (under MIT license) */
+(function () {
+    "use strict";
 
-    bigger();
-    win.addEventListener('resize', bigger);
+    var Library = function (node, realWidth) {
 
-    function bigger(){
-        if(win.innerWidth!=320){
-            node.style.width = "320px";
-            node.style.webkitTransform="scale("+(win.innerWidth/320)+")";
-            node.style.webkitTransformOrigin="0 0";
+        node.style.height = document.body.scrollHeight + 'px';
+
+        function bigger() {
+            if (window.innerWidth !== realWidth) {
+                node.style.width = realWidth + "px";
+                node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
+                node.style.webkitTransformOrigin = "0 0";
+            }
         }
+
+        bigger();
+        window.addEventListener('resize', bigger);
+
+        return this;
+    };
+
+    var Bigger = function (className, realWidth) {
+        var node = null;
+        if (realWidth === null) { realWidth = 320; }
+        if (className === null) {
+            node = document.body;
+        } else {
+            node = document.getElementsByClassName(className)[0];
+        }
+        return new Library(node, realWidth);
+    };
+
+    if (!window.Bigger) {
+        window.Bigger = Bigger;
     }
-})(window);
+}(window, document));
