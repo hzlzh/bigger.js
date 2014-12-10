@@ -15,17 +15,19 @@
         display: block;
         margin: 0 auto;
         background-size: 150px;
+        background-repeat: no-repeat;
     }
     </style>
     
 </head>
 <body class="yyy">
+
     <h1>f2e-workflow Test</h1>
     <div class="logo">Logo</div>
-    <script src="http://hzlzh.github.io/bigger.js/bigger.min.js" type="text/javascript"></script>
 
-<script>
-    Bigger()
-</script>
+    <script src="http://hzlzh.github.io/bigger.js/bigger.js" type="text/javascript"></script>
+    <script>
+        Bigger('logo',320); // set style on <div class="logo"> only
+    </script>
 </body>
 </html>
