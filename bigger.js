@@ -3,30 +3,33 @@
     "use strict";
 
     var Library = function (node, realWidth) {
-
-        node.style.height = document.body.scrollHeight + 'px';
+        // set hight for scroll use
+        node.style.height = node.scrollHeight + 'px';
 
         function bigger() {
-            if (window.innerWidth !== realWidth) {
+            if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
+                // main function
                 node.style.width = realWidth + "px";
                 node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
                 node.style.webkitTransformOrigin = "0 0";
             }
         }
 
+        // run the first time
         bigger();
-        window.addEventListener('resize', bigger);
 
+        // listen to mobile screen resize event
+        window.addEventListener(window.hasOwnProperty('onorientationchange') ? "orientationchange" : "resize", bigger, false);
         return this;
     };
 
     var Bigger = function (className, realWidth) {
         var node = null;
-        if (isNaN(realWidth)) { realWidth = 320; }
+        if (isNaN(realWidth)) { realWidth = 320; } // 320px design width as default
         if (!className) {
-            node = document.body;
+            node = document.body; // style add to <body> as default
         } else {
-            node = document.getElementsByClassName(className)[0];
+            node = document.getElementsByClassName(className)[0]; // specific class
         }
         return new Library(node, realWidth);
     };
