@@ -15,4 +15,6 @@ bigger page for bigger mobile screens.
 ```
 
 ## Demo
-[http://hzlzh.github.io/](http://hzlzh.github.io/)
+
+* [demo-1](http://hzlzh.github.io/bigger.js/demo-1.html)
+* [demo-2](http://hzlzh.github.io/bigger.js/demo-2.html)
