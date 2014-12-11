@@ -7,6 +7,7 @@
         node.style.height = node.scrollHeight + 'px';
 
         function bigger() {
+
             if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
                 // main function
                 node.style.width = realWidth + "px";
@@ -15,11 +16,19 @@
             }
         }
 
+        function run() {
+            bigger();
+            // fix screen rotate animation time
+            setTimeout(function () {
+                bigger();
+            }, 200);
+        }
+
         // run the first time
         bigger();
 
         // listen to mobile screen resize event
-        window.addEventListener(window.hasOwnProperty('onorientationchange') ? "orientationchange" : "resize", bigger, false);
+        window.addEventListener(window.hasOwnProperty('onorientationchange') ? "orientationchange" : "resize", run, false);
         return this;
     };
 
@@ -37,4 +46,4 @@
     if (!window.Bigger) {
         window.Bigger = Bigger;
     }
-}(window, document));
+}());
