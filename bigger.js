@@ -1,4 +1,4 @@
-/* bigger.js by @hzlzh | https://github.com/hzlzh/bigger.js (under MIT license) */
+/* bigger.js v1.0.1 | https://github.com/hzlzh/bigger.js (under MIT license) */
 (function () {
     "use strict";
 
