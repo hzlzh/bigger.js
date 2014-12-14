@@ -4,13 +4,14 @@
 
     var Library = function (node, realWidth) {
         // set hight for scroll use
-        node.style.height = node.scrollHeight + 'px';
+        // node.style.height = node.scrollHeight + 'px';
 
         function bigger() {
 
             if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
                 // main function
                 node.style.width = realWidth + "px";
+                node.style.height = "auto";
                 node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
                 node.style.webkitTransformOrigin = "0 0";
             }
