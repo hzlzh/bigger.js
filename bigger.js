@@ -4,7 +4,7 @@
 
     var Library = function (node, realWidth) {
         // set hight for scroll use
-        node.style.height = node.scrollHeight + 'px';
+        // node.style.height = node.scrollHeight + 'px';
 
         function bigger() {
 
