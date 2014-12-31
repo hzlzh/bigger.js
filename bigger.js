@@ -12,8 +12,7 @@
                 // main function
                 node.style.width = realWidth + "px";
                 node.style.height = "auto";
-                node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
-                node.style.webkitTransformOrigin = "0 0";
+                node.style.zoom = window.innerWidth / realWidth;
             }
         }
 
