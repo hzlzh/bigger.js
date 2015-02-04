@@ -1,4 +1,4 @@
-/* bigger.js v1.0.1 | https://github.com/hzlzh/bigger.js (under MIT license) */
+/* bigger.js v1.0.2 | https://github.com/hzlzh/bigger.js (under MIT license) */
 (function () {
     "use strict";
 
@@ -11,8 +11,8 @@
             if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
                 // main function
                 node.style.width = realWidth + "px";
-                node.style.height = "auto";
-                node.style.zoom = window.innerWidth / realWidth;
+                node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
+                node.style.webkitTransformOrigin = "0 0";
             }
         }
 
