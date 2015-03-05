@@ -1,4 +1,4 @@
-/* bigger.js v1.0.2 | https://github.com/hzlzh/bigger.js (under MIT license) */
+/* bigger.js v1.0.3 | https://github.com/hzlzh/bigger.js (under MIT license) */
 (function () {
     "use strict";
 
@@ -11,7 +11,8 @@
             if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
                 // main function
                 node.style.width = realWidth + "px";
-                node.style.zoom = window.innerWidth / realWidth;
+                node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
+                node.style.webkitTransformOrigin = "0 0";
             }
         }
 
@@ -31,15 +32,12 @@
         return this;
     };
 
-    var Bigger = function (className, realWidth) {
-        var node = null;
+    var Bigger = function (obj, realWidth) {
         if (isNaN(realWidth)) { realWidth = 320; } // 320px design width as default
-        if (!className) {
-            node = document.body; // style add to <body> as default
-        } else {
-            node = document.getElementsByClassName(className)[0]; // specific class
+        if (!obj) {
+            obj = document.body; // style add to <body> as default
         }
-        return new Library(node, realWidth);
+        return new Library(obj, realWidth);
     };
 
     if (!window.Bigger) {
