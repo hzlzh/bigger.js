@@ -37,6 +37,7 @@
     };
 
     var Bigger = function (obj, realWidth, type) {
+        // type true is fixed Dom
         if (isNaN(realWidth)) { realWidth = 320; } // 320px design width as default
         if (!obj) {
             obj = document.body; // style add to <body> as default
