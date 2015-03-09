@@ -1,8 +1,8 @@
-/* bigger.js v1.0.3 | https://github.com/hzlzh/bigger.js (under MIT license) */
+/* bigger.js v1.0.4 | https://github.com/hzlzh/bigger.js (under MIT license) */
 (function () {
     "use strict";
 
-    var Library = function (node, realWidth) {
+    var Library = function (node, realWidth, type) {
         // set hight for scroll use
         // node.style.height = node.scrollHeight + 'px';
 
@@ -11,8 +11,12 @@
             if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
                 // main function
                 node.style.width = realWidth + "px";
-                node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
-                node.style.webkitTransformOrigin = "0 0";
+                if(type){
+                    node.style.zoom = window.innerWidth / realWidth;
+                }else{
+                    node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
+                    node.style.webkitTransformOrigin = "0 0";
+                }
             }
         }
 
@@ -32,12 +36,12 @@
         return this;
     };
 
-    var Bigger = function (obj, realWidth) {
+    var Bigger = function (obj, realWidth, type) {
         if (isNaN(realWidth)) { realWidth = 320; } // 320px design width as default
         if (!obj) {
             obj = document.body; // style add to <body> as default
         }
-        return new Library(obj, realWidth);
+        return new Library(obj, realWidth, type);
     };
 
     if (!window.Bigger) {
