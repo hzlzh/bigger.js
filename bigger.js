@@ -15,6 +15,8 @@
                     node.style.zoom = window.innerWidth / realWidth;
                 }else{
                     node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
+                    // one page with no scroll
+                    // node.style.height = window.innerHeight/(window.innerWidth / realWidth) + "px";
                     node.style.webkitTransformOrigin = "0 0";
                 }
             }
