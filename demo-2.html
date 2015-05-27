@@ -52,7 +52,7 @@
 <body class="yyy">
 
 <!--Put all the fixed DOM out of `#un-fixed`-->
-<div id="bannerFixed" class="banner fixed">`fixed` item will not be scaled!</div>
+<div id="doFixed" class="banner fixed">`fixed` item will not be scaled!</div>
 
 <!--bigger.js only scale `#un-fixed` -->
 <div id="un-fixed">
@@ -84,8 +84,8 @@
 
 <script src="http://hzlzh.github.io/bigger.js/bigger.js" type="text/javascript"></script>
 <script>
-	Bigger(document.getElementById('doFixed'), 320, true); // zoom on <div id="doFixed"> only
-	Bigger(document.getElementById('unFixed'), 320); // set style on <div id="unFixed"> only
+	Bigger(document.getElementById('doFixed')[0], 320, true); // zoom on <div id="doFixed"> only
+	Bigger(document.getElementById('unFixed')[0], 320); // set style on <div id="unFixed"> only
 </script>
 
 </body>
