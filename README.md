@@ -14,7 +14,7 @@ bigger view for bigger mobile screens.
     Bigger('xxx');                  // add style to <div class="xxx"> with 320px real width
     Bigger('do-fixed', 400);        // `scale` on <div class="do-fixed"> with 400px real width
     Bigger('un-fixed', 320, true);  // `zoom` on <div class="un-fixed"> with 320 real width
-    Bigger(document, 320, 'rem');  // Set root font-size ont <html data-rem="20"> & base width `320`
+    Bigger(null, 320, 'rem');  // Set root font-size ont <html data-rem="20"> & base width `320`
 
     // use ID
     Bigger(document.getElementById('unFixed'), 400);        // `scale` on <div id="unFixed"> with 400px real width
@@ -31,7 +31,7 @@ bigger view for bigger mobile screens.
 <script>
     Bigger($('#unFixed')[0], 400);			// `scale` on <div id="unFixed"> with 400px real width
     Bigger($('#doFixed')[0], 320, true);    // `zoom` on <div id="doFixed">
-    Bigger(document, 320, 'rem');	// Set root font-size ont <html data-rem="20"> & base width `320`
+    Bigger(null, 320, 'rem');	// Set root font-size ont <html data-rem="20"> & base width `320`
 </script>
 ```
 
