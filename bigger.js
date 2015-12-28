@@ -12,11 +12,12 @@
                 // main function
                 node.style.width = realWidth + "px";
 
-                var rootSize = document.documentElement.dataset.rem;
+                var rootSize = document.documentElement.dataset.rem || 20;
 
-                if(type === 'rem'){
+                if(type == 'rem'){
                     document.documentElement.style.fontSize = window.innerWidth / realWidth * rootSize + "px"
-                }else if(type){
+                }
+                else if(type){
                     node.style.zoom = window.innerWidth / realWidth;
                 }else{
                     node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
@@ -30,7 +31,7 @@
             // fix screen rotate animation time
             setTimeout(function () {
                 bigger();
-            }, 200);
+            }, 10);
         }
 
         // run the first time
