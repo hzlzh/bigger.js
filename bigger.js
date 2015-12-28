@@ -11,7 +11,12 @@
             if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
                 // main function
                 node.style.width = realWidth + "px";
-                if(type){
+
+                var rootSize = document.documentElement.dataset.rem;
+
+                if(type === 'rem'){
+                    document.documentElement.style.fontSize = window.innerWidth / realWidth * rootSize + "px"
+                }else if(type){
                     node.style.zoom = window.innerWidth / realWidth;
                 }else{
                     node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
