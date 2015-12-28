@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-webp="" data-rem="20">
+<head><title></title>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=46153567" charset="UTF-8"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <style>* {
+        margin: 0;
+        padding: 0
+    }
+
+    body {
+        line-height: 1.3;
+        background: #232323;
+        color: #FFF;
+        font: 0.7rem "Helvetica Neue", Helvetica Neue, Helvetica, Arial, Lantinghei SC, Hiragino Sans GB, Microsoft Yahei, sans-serif
+    }
+
+    .main {
+        width: 16rem;
+        margin: 0 auto;
+        position: relative
+    }
+
+    .bg-box {
+        position: absolute;
+        top: 0
+    }
+
+    .btn_disabled {
+        background: #999;
+        color: #eee
+    }
+
+    .bg {
+        height: 8.75rem;
+        width: 16rem;
+        background-size: 16rem
+    }
+
+    .bg-0 {
+        height: 16rem;
+        background-image: url(http://wximg.gtimg.com/wxgc/_events/20151228-game-mingyunzhilv/d5f65595568cbc3c0d347691db8989e5.png)
+    }
+
+    .bg-1 {
+        height: 16rem;
+        background-image: url(http://wximg.gtimg.com/wxgc/_events/20151228-game-mingyunzhilv/63870befeb18ded7e0856bbb4df64f66.png)
+    }
+
+    .bg-2 {
+        height: 10.9rem;
+        background-image: url(http://wximg.gtimg.com/wxgc/_events/20151228-game-mingyunzhilv/02e88234a38790195e577c7059fde569.jpg)
+    }
+
+    .b {
+        position: absolute;
+        text-align: center;
+        cursor: pointer;
+        font-weight: bolder;
+        text-decoration: none
+    }
+
+    .b-0 {
+        height: 2rem;
+        width: 5.55rem;
+        top: 14.5rem;
+        left: 7.45rem;
+        font-size: 0.9rem;
+        line-height: 1.9rem;
+        color: #6f3700
+    }
+
+    .slider-box {
+        width: 15rem;
+        position: absolute;
+        overflow-x: scroll
+    }
+
+    .slider {
+        overflow: hidden
+    }
+
+    .slider-item {
+        display: block;
+        float: left;
+        margin-right: 0.5rem
+    }
+
+    .slider-item:last-child {
+        margin-right: 0
+    }
+
+    .slider-item video {
+        width: 100%;
+        height: 100%
+    }
+
+    .slider-item img {
+        display: block
+    }
+
+    .current {
+        background-color: rgba(0, 0, 0, .5);
+        border: 0.1rem solid rgba(220, 220, 90, .8)
+    }</style>
+</head>
+<body style="background-color: #001e3c"><script type='text/javascript' id="__bs_script__">//<![CDATA[
+document.write("<script async src='/browser-sync/browser-sync-client.2.9.11.js'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+
+<div class="banner"></div>
+<div class="main">
+    <div class="bg-box">
+        <div class="bg bg-0"></div>
+        <div class="bg bg-1"></div>
+        <div class="bg bg-2"></div>
+    </div>
+    <a class="b b-0" href="#">抢先下载！</a>
+
+    <div style="width: 15rem; height: 12.35rem; top: 24.7rem; left: 0.55rem; position: absolute; overflow: hidden">
+        <div class="slider-box">
+            <div class="slider" style="width: 39.5rem">
+                <div class="slider-item"><img width="150" src="http://wximg.gtimg.com/wxgc/_events/20151228-game-mingyunzhilv/3297674768b3f44da8c18b02890fec5d.jpg" alt=""></div>
+                <div class="slider-item"><img width="150" src="http://wximg.gtimg.com/wxgc/_events/20151228-game-mingyunzhilv/13a482464298bbfbef9229c8d8eda867.jpg" alt=""></div>
+                <div class="slider-item"><img width="150" src="http://wximg.gtimg.com/wxgc/_events/20151228-game-mingyunzhilv/8ace09a12ee12c595eda76ae3e17cc7c.jpg" alt=""></div>
+                <div class="slider-item"><img width="150" src="http://wximg.gtimg.com/wxgc/_events/20151228-game-mingyunzhilv/21bf06e4f10b8db1c17b7831d85d7fe7.jpg" alt=""></div>
+                <div class="slider-item"><img width="150" src="http://wximg.gtimg.com/wxgc/_events/20151228-game-mingyunzhilv/0d0478599ffe447993b4c41f22a229d5.jpg" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	/* bigger.js v1.0.4 | https://github.com/hzlzh/bigger.js (under MIT license) */
+(function () {
+    "use strict";
+
+    var Library = function (node, realWidth, type) {
+        // set hight for scroll use
+        // node.style.height = node.scrollHeight + 'px';
+
+        function bigger() {
+
+            if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
+                // main function
+                node.style.width = realWidth + "px";
+
+                if(type == 'rem' && document.documentElement.dataset.rem){
+                	document.documentElement.style.fontSize = window.innerWidth / realWidth * document.documentElement.dataset.rem + "px"
+                }
+                else if(type){
+                    node.style.zoom = window.innerWidth / realWidth;
+                }else{
+                    node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
+                    // one page with no scroll
+                    // node.style.height = window.innerHeight/(window.innerWidth / realWidth) + "px";
+                    node.style.webkitTransformOrigin = "0 0";
+                }
+            }
+        }
+
+        function run() {
+            bigger();
+            // fix screen rotate animation time
+            setTimeout(function () {
+                bigger();
+            }, 200);
+        }
+
+        // run the first time
+        bigger();
+
+        // listen to mobile screen resize event
+        window.addEventListener(window.hasOwnProperty('onorientationchange') ? "orientationchange" : "resize", run, false);
+        return this;
+    };
+
+    var Bigger = function (obj, realWidth, type) {
+        // type true is fixed Dom
+        if (isNaN(realWidth)) { realWidth = 320; } // 320px design width as default
+        if (!obj) {
+            obj = document.body; // style add to <body> as default
+        }
+        return new Library(obj, realWidth, type);
+    };
+
+    if (!window.Bigger) {
+        window.Bigger = Bigger;
+    }
+}());
+</script>
+<!-- <script src="http://hzlzh.github.io/bigger.js/bigger.js" type="text/javascript"></script> -->
+<script>
+	Bigger(document.getElementById('doFixed'), 320, 'rem'); // zoom on <div id="doFixed"> only
+</script>
+
+</body>
+</html>
