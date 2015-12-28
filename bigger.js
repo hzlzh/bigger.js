@@ -1,23 +1,24 @@
 /* bigger.js v1.0.5 | https://github.com/hzlzh/bigger.js (under MIT license) */
 (function () {
     "use strict";
-
     var Library = function (node, realWidth, type) {
         // set hight for scroll use
-        // node.style.height = node.scrollHeight + 'px';
 
         function bigger() {
+
+            if(type == 'rem'){
+                var rootSize = document.documentElement.dataset.rem || 20;
+                document.documentElement.style.fontSize = window.innerWidth / realWidth * rootSize + "px";
+                return;
+            }
 
             if (window.innerWidth !== realWidth || window.orientation === 0 || window.orientation === 180) {
                 // main function
                 node.style.width = realWidth + "px";
 
-                var rootSize = document.documentElement.dataset.rem || 20;
 
-                if(type == 'rem'){
-                    document.documentElement.style.fontSize = window.innerWidth / realWidth * rootSize + "px"
-                }
-                else if(type){
+
+                if(type){
                     node.style.zoom = window.innerWidth / realWidth;
                 }else{
                     node.style.webkitTransform = "scale(" + window.innerWidth / realWidth + ")";
